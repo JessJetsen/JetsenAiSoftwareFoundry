@@ -21,8 +21,8 @@ flowchart LR
             KBT["KanBan view"]
         end
 
-        TPM --> KB
-        KB --> O
+        KBT --> KB
+        KBT --> O
         O --> Q
 
         subgraph Nodes["Execution Nodes"]
@@ -45,7 +45,7 @@ flowchart LR
         IP --> O
         CL --> O
 
-        O --> TPM
+        O --> KBT
     end
 
     %% Capability bubbles
