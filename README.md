@@ -27,9 +27,9 @@ flowchart LR
 
         subgraph Nodes["Execution Nodes"]
             MM["Mac mini\n(LLM/SD/Draw Things)"]
-            LX["Linux JetPack 6.2\n(LLM/SD)"]
-            PC["PC\n(LLM/SD)"]
-            IP["iPad Pro\n(LLM client)"]
+            LX["Linux JetPack 6.2\n(LLM/SD/Vision/OCR) Cl4ptrp "]
+            PC["PC\n(LLM/SD/TRT/A!!!!/ComfyUi/vllm)"]
+            IP["iPad Pro(M4)\n(LLM Lidar / Vision Capture client)"]
             CL["Cloud\n(LLM/SD fallback)"]
         end
 
