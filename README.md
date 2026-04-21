@@ -22,7 +22,7 @@ flowchart LR
         end
 
         KBT --> KB
-        KBT --> O
+        KB --> O
         O --> Q
 
         subgraph Nodes["Execution Nodes"]
