@@ -1,6 +1,6 @@
 # JetsenAiSoftwareFoundry
 ## System Topology
-<img width="1920" height="1080" alt="Jetsen_Desktop" src="https://github.com/user-attachments/assets/df80a8bd-6597-4236-952b-8ef8351fcd31" />
+
 ```mermaid
 flowchart LR
     subgraph Lab["Jetsen AI Software Foundry"]
@@ -66,4 +66,6 @@ flowchart LR
     IP --> capLLM
     CL --> capLLM
     CL --> capSD
+```
 
+<img width="1920" height="1080" alt="Jetsen_Desktop" src="https://github.com/user-attachments/assets/df80a8bd-6597-4236-952b-8ef8351fcd31" />
