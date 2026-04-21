@@ -1,4 +1,71 @@
 # JetsenAiSoftwareFoundry
+The Software Foundry Aims to be a Multi Node Lab Grade Control Surface for Ai Software and model creation
+Features : 
+Project TPM agent Loop administrates software creation from vision to EOL with structured roadmaps and outlines, the TPM requests the next code slice or generation instructions along with desired return order of artifacts from the Lab Overseer, who aligns the infra and sequences events for placment in the queue which is the final arbiter on when tasks happen
+One node assigned as Overseer administers the model loading & node choices (What infra is used / harness / model / settings ) decisions are auditable.
+Worker nodes listen for requests - load models and return deliverables to the overseer for grading then to the project Kanban for adoption or rejection.
+```mermaid
+flowchart LR
+    subgraph Lab["Jetsen AI Software Foundry"]
+        O["Overseer\n(gateway)"]
+        KB["KanBan\n(task board)"]
+        Q["Lab Queue\n(tasks & flights)"]
+
+        %% TPM side (separate)
+        subgraph TPM["TPM Agent"]
+            V["Vision"]
+            R["Roadmap"]
+            T["Timeline"]
+            RS["Research"]
+            BP["BuildPlan"]
+            KBT["KanBan view"]
+        end
+
+        TPM --> KB
+        KB --> O
+        O --> Q
+
+        subgraph Nodes["Execution Nodes"]
+            MM["Mac mini\n(LLM/SD/Draw Things)"]
+            LX["Linux JetPack 6.2\n(LLM/SD)"]
+            PC["PC\n(LLM/SD)"]
+            IP["iPad Pro\n(LLM client)"]
+            CL["Cloud\n(LLM/SD fallback)"]
+        end
+
+        Q --> MM
+        Q --> LX
+        Q --> PC
+        Q --> IP
+        Q --> CL
+
+        MM --> O
+        LX --> O
+        PC --> O
+        IP --> O
+        CL --> O
+
+        O --> TPM
+    end
+
+    %% Capability bubbles
+    classDef cap fill:#152b46,stroke:#3da9f5,color:#fff,font-size:11px;
+    capLLM["LLM"]:::cap
+    capSD["SD"]:::cap
+    capDT["Draw Things"]:::cap
+
+    MM --> capLLM
+    MM --> capSD
+    MM --> capDT
+    LX --> capLLM
+    LX --> capSD
+    PC --> capLLM
+    PC --> capSD
+    IP --> capLLM
+    CL --> capLLM
+    CL --> capSD
+
+```
 <img width="1920" height="1080" alt="Jetsen_Desktop" src="https://github.com/user-attachments/assets/df80a8bd-6597-4236-952b-8ef8351fcd31" />
 <img width="917" height="528" alt="Gateway_alpha" src="https://github.com/user-attachments/assets/8cfa112b-e374-41bc-bb35-7a273626b3b3" />
 <img width="1920" height="1080" alt="TPMPanel_1" src="https://github.com/user-attachments/assets/d72ab569-6c0f-4371-a6f6-78a5865c6693" />
